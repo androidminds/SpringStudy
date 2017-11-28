@@ -1,0 +1,58 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>登录</title>
+    <script type="text/javascript">
+        function validate_required(field, msg) {
+            with (field) {
+                if (value == null || value == "") {
+                    alert(msg);
+                    return false
+                }
+                else {
+                    return true
+                }
+            }
+        }
+
+        function validate_form(thisform) {
+            with (thisform) {
+                if (validate_required(userName, "User name must be filled out!") == false) {
+                    userName.focus();
+                    return false
+                }
+                if (validate_required(password, "Password must be filled out!") == false) {
+                    password.focus();
+                    return false
+                }
+            }
+            return true;
+        }
+
+        function send_form(thisform) {
+            if (validate_form(thisform)) {
+                thisform.submit();
+            }
+        }
+    </script>
+</head>
+<body>
+<p th:text="${error}"></p>
+<form name="form1" action="loginCheck.html" method="post">
+    <table>
+        <tr>
+            <td>用户名：</td>
+            <td><input type="text" name="userName"/></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="password"/></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="登录" onclick="send_form(form1)" /></td>
+                </tr>
+            </table>
+        </form>
+        <br/>
+        <a href="/register.html">注册</a>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <title>小春论坛</title>
+    </head>
+    <body>
+        <p th:text="'Hello, ' + ${session.user.userName} + ',欢迎您进入!'" />
+    </body>
+</html>
