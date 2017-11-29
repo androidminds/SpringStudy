@@ -16,9 +16,7 @@ public class LoginController {
     private UserService userService;
 
     @RequestMapping(value = "/")
-    public String loginPage(){
-        return "login";
-    }
+    public String loginPage(){return "login";}
 
     @RequestMapping(value = "/register.html")
     public String registerPage(){

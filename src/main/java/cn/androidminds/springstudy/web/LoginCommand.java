@@ -1,5 +1,6 @@
 package cn.androidminds.springstudy.web;
 
+
 public class LoginCommand {
 	private String userName;
 
