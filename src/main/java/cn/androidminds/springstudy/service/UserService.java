@@ -7,6 +7,7 @@ import cn.androidminds.springstudy.domain.LoginLog;
 import cn.androidminds.springstudy.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -32,6 +33,8 @@ public class UserService {
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}
+
+    @Transactional
 	public void addLoginLog(int uId, String ipAddress) {
 		logRepository.save(new LoginLog(uId, new Date(), ipAddress) );
 	}

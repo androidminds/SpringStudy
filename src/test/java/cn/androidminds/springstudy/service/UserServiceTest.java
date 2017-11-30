@@ -1,5 +1,6 @@
 package cn.androidminds.springstudy.service;
 
+
 import cn.androidminds.springstudy.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
