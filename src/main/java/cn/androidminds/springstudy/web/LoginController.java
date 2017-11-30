@@ -48,6 +48,7 @@ public class LoginController {
             user.setLastIp(request.getLocalAddr());
             user.setLastVisit(new Date());
             request.getSession().setAttribute("user", user);
+            userService.addLoginLog(user.getUserId(), user.getLastIp());
             return new ModelAndView("main");
         } else {
             return new ModelAndView("login", "error", "用户不存在。");
