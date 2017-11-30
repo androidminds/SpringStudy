@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class AppController {
     @RequestMapping(value="/getrest")
     public Greeting getRest() {
-        Greeting greeting = new Greeting(1, "Hello");
+        Greeting greeting = new Greeting(2, "Hello");
+        int i = 100/0;
         return greeting;
     }
 }
