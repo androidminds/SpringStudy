@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>登录</title>
+    <title th:text="#{login}"/>
     <script type="text/javascript">
         function validate_required(field, msg) {
             with (field) {
@@ -35,23 +35,42 @@
     </script>
 </head>
 <body>
-<p th:text="${error}"></p>
+
+<form action="/changeSessionLanauage" method="get" th:if="${#locale.language} == en">
+
+    <input name="lang" type="hidden" value="zh"  />
+
+    <button th:text="#{change_to_chinese}"/>
+
+</form>
+
+
+<form action="/changeSessionLanauage" method="get" th:if="${#locale.language} == zh">
+
+    <input name="lang" type="hidden" value="en" />
+
+    <button th:text="#{change_to_english}"/>
+
+</form>
+
+
+<p th:text="${error}"/>
 <form name="form1" action="loginCheck.html" method="post">
     <table>
         <tr>
-            <td>用户名：</td>
+            <td th:text="#{login_user}"/>
             <td><input type="text" name="userName"/></td>
         </tr>
         <tr>
-            <td>密码：</td>
+            <td th:text="#{login_password}"/>
             <td><input type="password" name="password"/></td>
         </tr>
         <tr>
-            <td><input type="button" value="登录" onclick="send_form(form1)" /></td>
+            <td><input type="button" th:value="#{login}" onclick="send_form(form1)" /></td>
                 </tr>
             </table>
         </form>
         <br/>
-        <a href="/register.html">注册</a>
+        <a href="/register.html" th:text="#{register}"/>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 
     <head>
-        <title>注册</title>
+        <title th:text="#{register}" />
         <script type="text/javascript">
 
             function compare_password(password, repeat, msg) {
@@ -56,24 +56,24 @@
     </head>
     <body>
 
-    <p th:text="${error}"></p>
+    <p th:text="${error}"/>
 
     <form name="form1" action="registerCheck.html"  method="post">
         <table>
             <tr>
-                <td>用户名：</td>
+                <td th:text="#{login_user}"/>
                 <td><input type="text" name="userName"/></td>
             </tr>
             <tr>
-                <td>密 码1：</td>
+                <td th:text="#{login_password}"/>
                 <td><input type="password" name="password"/></td>
             </tr>
             <tr>
-                <td>密 码2：</td>
+                <td th:text="#{repeat_password}" />
                 <td><input type="password" name="repeat"/></td>
             </tr>
         <tr>
-            <td><input type="button" value="注册" onclick="send_form(form1)"/></td>
+            <td><input type="button" th:value="#{register}" onclick="send_form(form1)"/></td>
         </tr>
         </table>
     </form>

@@ -5,8 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import javax.servlet.MultipartConfigElement;
+import java.util.Locale;
 
 @SpringBootApplication
 @ServletComponentScan
@@ -15,7 +18,12 @@ public class SpringstudyApplication {
 		SpringApplication.run(SpringstudyApplication.class, args);
 	}
 
-
+    @Bean
+    public LocaleResolver localeResolver() {
+        SessionLocaleResolver slr = new SessionLocaleResolver();
+        slr.setDefaultLocale(new Locale("en", "US"));
+        return slr;
+    }
     @Bean
     public MultipartConfigElement multipartConfigElement() {
         MultipartConfigFactory factory = new MultipartConfigFactory();
@@ -25,6 +33,7 @@ public class SpringstudyApplication {
         factory.setMaxRequestSize("256KB");
         //Sets the directory location where files will be stored.
         //factory.setLocation("路径地址");
+
         return factory.createMultipartConfig();
     }
 }
